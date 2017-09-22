@@ -1,0 +1,1664 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%.IDENTIFICATION $Id: templatelarge.tex.src,v 1.29 2008/01/25 10:47:12 fsogni Exp $
+%.LANGUAGE       TeX, LaTeX
+%.ENVIRONMENT    ESOFORM
+%.PURPOSE        Template application form for ESO Observing time.
+%.AUTHOR         The Esoform Package is maintained by the Observing
+%                Programmes Office (OPO) while the background software
+%                is provided by the User Support System (USS) Department.
+%
+%-----------------------------------------------------------------------
+%
+%
+%                   ESO LA SILLA PARANAL OBSERVATORY
+%                   --------------------------------
+%                   LARGE PROGRAMME PHASE 1 TEMPLATE
+%                   --------------------------------
+%
+%
+%
+%          PLEASE CHECK THE ESOFORM USERS' MANUAL FOR DETAILED 
+%              INFORMATION AND DESCRIPTIONS OF THE MACROS. 
+%     (see the file usersmanual.tex provided in the ESOFORM package) 
+%
+%
+%        ====>>>> TO BE SUBMITTED THROUGH WEB UPLOAD  <<<<====
+%               (see the Call for Proposals for details)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                      I M P O R T A N T    N O T E
+%                      ----------------------------
+%
+% By submitting this proposal, the Principal Investigator takes full
+% responsibility for the content of the proposal, in particular with
+% regard to the names of CoI's and the agreement to act in accordance
+% with the ESO policy and regulations, should observing time be
+% granted.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%
+%    - LaTeX *is* sensitive towards upper and lower case letters.
+%    - Everything after a `%' character is taken as comments.
+%    - DO NOT CHANGE ANY OF THE MACRO NAMES (words beginning with `\’).
+%    - DO NOT INSERT ANY TEXT OUTSIDE THE PROVIDED MACROS.
+%
+
+%
+%    - All parameters are checked at the verification or submission.
+%    - Some parameters are also checked during the pdfLaTeX
+%      compilation.  If this is not the case, this is indicated by the
+%      phrase
+%      "This parameter is NOT checked at the pdfLaTeX compilation."
+%
+
+\documentclass{esoformlarge}
+
+% The list of LaTeX definitions of commonly used astronomical symbols
+% is already included in the style file common2e.sty (see Table 1 in
+% the Users' Manual).  If you have your own macros or definitions,
+% please insert them here, between the \documentclass{esoformlarge}
+% and the \begin{document} commands.
+%
+%     PLEASE USE NEITHER YOUR OWN MACROS NOR ANY TEX/LATEX MACROS  
+%       IN THE \Title, \Abstract, \PI, \CoI, and \Target MACROS.
+%
+% WARNING: IT IS THE RESPONSIBILITY OF THE APPLICANTS TO STAY WITHIN THE
+% CURRENT BOX LIMITS AND ELIMINATE POTENTIAL OVERFILL/OVERWRITE PROBLEMS. 
+
+\usepackage{xcolor}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CONTENTS OF THE FIRST PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 1 ------------------------------------------------------------
+%
+% You should use this template for period 101A applications ONLY.
+%
+% DO NOT EDIT THE MACRO BELOW. 
+
+\Cycle{101A}
+
+% Type below, within the curly braces {}, the title of your observing
+% programme (up to two lines).
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% DO NOT USE ANY TEX/LATEX MACROS IN THE TITLE.
+
+\Title{RAMS: The Radio-AGN MUSE Survey: Determining the triggering and
+impact of a benchmark sample of powerful radio Active Galactic Nuclei.}  
+
+% Type below the numeric code corresponding to the subcategory of your
+% programme. Please note that starting in P101 there are major changes
+% to the subcategories in categories A and B. Please check the updated
+% categories at
+% https://www.eso.org/sci/observing/phase1/opc-categories.html
+% and the ESOFORM User Manual.
+
+\SubCategoryCode{A9}   
+
+%This is the only type valid with this template. Do NOT change it.
+\ProgrammeType{LARGE}
+
+% For GTO proposals only: uncomment the following and fill out the GTO
+% programme code (as communicated to the respective GTO coordinator).
+
+%\GTOcontract{INS-consortium}
+
+%---- BOX 2 ------------------------------------------------------------
+%
+% Type below a concise abstract of your proposal (up to 13 lines).
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% DO NOT USE ANY TEX/LATEX MACROS IN THE ABSTRACT.
+
+\Abstract{Active Galactic Nuclei (AGNs) are believed to regulate galaxy growth
+by injecting vast amounts of energy into their host galaxies and
+halos which shuts-off star formation. This ``AGN feedback'' is
+supported by observations of powerful outflows launched from AGNs
+into their immediate surroundings. However, we still do not know how
+AGNs are triggered, nor what drives their outflows. This raises
+major uncertainties regarding whether AGN feedback is accurately
+implemented in models of galaxy evolution. To address this requires
+mapping the kinematics of AGN outflows and host galaxies at high
+spatial resolutions, which can only be achieved via IFU observations
+of nearby AGNs. To date, all IFU surveys of nearby AGNs have
+focussed on radio-weak AGNs, yet there is strong evidence that
+radio-powerful AGNs play a major role in driving feedback-inducing
+outflows. It is likely, therefore, that IFU surveys of AGNs have so
+far ignored one of the most important drivers of AGN feedback. We
+propose to address this by using MUSE to conduct the first IFU
+survey of a representative sample of local, radio-powerful AGN. From
+this, we will determine (a) how powerful radio AGNs are triggered;
+(b) the role of radio jets vs. radiative driving in powering
+feedback-inducing AGN outflows; and (c) the mass/ momentum/energy
+content of these outflows, and whether they have a significant
+impact on their host galaxies.}
+
+%---- BOX 3 ------------------------------------------------------------
+%
+% Description of the observing run(s) necessary for the completion of
+% your programme.  The macro takes ten parameters: run ID, period,
+% instrument, time requested, month preference, moon requirement,
+% seeing requirement, transparency requirement, observing mode and 
+% run type.
+%
+% 1. RUN ID
+% Valid values: A, B, ..., Z
+%
+% 2. PERIOD
+% For Paranal and APEX instruments four periods are allowed,
+% hence the valid range is from 101 to 104.
+% La Silla large proposals can request up to Period 97.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 3. INSTRUMENT
+% Valid values: ARTEMIS EFOSC2 FLAMES FORS2 GRAVITY HARPS KMOS OMEGACAM PIONIER SEPIA SOFI SOFOSC SPHERE Special3.6 SpecialNTT UVES XSHOOTER
+%
+% 4. TIME REQUESTED
+% In hours for Service Mode, in nights for Visitor Mode.
+% In either case the time can be rounded up to  1 decimal place.    
+% This parameter is NOT checked at the pdfLaTeX compilation.
+% 
+% 5. MONTH PREFERENCE
+% Valid values: apr, may, jun,
+% jul, aug, sep, oct,
+% nov, dec, jan, feb,
+% mar, any
+%
+% 6. MOON REQUIREMENT
+% Valid values: d, g, n
+%
+% 7. SEEING REQUIREMENT
+% Valid values: 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, n
+%
+% 8. TRANSPARENCY REQUIREMENT
+% Valid values: CLR, PHO, THN
+%
+% 9. OBSERVING MODE
+% Valid values: v, s
+% 
+% 10. RUN TYPE 
+% Please leave blank for all Large Programme proposals.
+
+\ObservingRun{A}{101}{MUSE}{33.1h}{any}{g}{1.0}{PHO}{s}{}
+\ObservingRun{B}{102}{MUSE}{21.7h}{any}{g}{1.0}{PHO}{s}{}
+\ObservingRun{C}{103}{MUSE}{34.1h}{any}{g}{1.0}{PHO}{s}{}
+\ObservingRun{D}{104}{MUSE}{21.7h}{any}{g}{1.0}{PHO}{s}{}
+
+% Proprietary time requested.
+% Valid values: % 0, 1, 2, 6, 12
+
+\ProprietaryTime{12}
+
+%---- BOX 4 ------------------------------------------------------------
+% Please provide the ESO User Portal username for the Principal 
+% Investigator (PI) in the \PI field.
+%
+% For the Co-I's (CoI) please fill in the following details:
+% First and middle initials, family name, the institute code
+% corresponding to their affiliation.
+% The corresponding affiliation should be entered for EACH
+% Co-I separately in order to ensure the correct details of 
+% all Co-I's are stored in the ESO database.
+% You can find all institute codes listed according to country
+% on the following webpage: 
+% http://www.eso.org/sci/observing/phase1/countryselect.html
+%
+% DO NOT USE ANY TEX/LATEX MACROS HERE.
+%
+
+\PI{jmullaney} 
+% Replace with PI's ESO User Portal username.
+
+\CoI{C.}{Tadhunter}{1245}
+\CoI{D.}{Alexander}{1237}
+\CoI{E.}{Bernhard}{1245}
+\CoI{P.}{Bessiere}{1824}
+\CoI{D.}{Dicken}{1193}
+\CoI{C.}{Harrison}{1258}
+\CoI{R.}{Morganti}{1096}
+\CoI{C.}{Ramos-Almeida}{1393}
+\CoI{D.}{Rosario}{1237}
+\CoI{M.}{Rose}{1245}
+\CoI{F.}{Santoro}{1096}
+\CoI{R.}{Spence}{1245}
+\CoI{M.}{Villar-Martin}{8545}
+
+% Please note:
+% Due to the way in which the proposal receiver system parses
+% the CoI macro, the number of pairs of curly brackets '{}'
+% in this macro MUST be strictly equal to 3, i.e., the
+% number of parameters of the macro. Accordingly, curly
+% brackets should not be used within the parameters (e.g.,
+% to protect LaTeX signs).
+%
+% For instance:
+% \CoI{L.}{Ma\c con}{1098}
+% \CoI{R.}{Men\'endez}{1098}
+%
+% are valid, while
+%
+% \CoI{L.}{Ma{\c}con}{1098}
+% \CoI{R.}{Men{\'}endez}{1098}
+%
+% are not. Unfortunately the receiver does not give an
+% explicit error message when such invalid forms are
+% used in the CoI macro, but the processing of the proposal
+% keeps hanging indefinitely.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE THREE PAGES OF THE SCIENTIFIC DESCRIPTION %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 5 ------------------------------------------------------------
+%
+%               THIS DESCRIPTION IS RESTRICTED TO THREE PAGES 
+%
+%   THE RELATIVE LENGTHS OF EACH OF THESE FIVE SECTIONS ARE VARIABLE,
+%                BUT THEIR SUM IS RESTRICTED TO THREE PAGES
+%
+% All macros in this box are NOT checked at the pdfLaTeX compilation.
+
+\ScientificRationale{
+  
+{\bf The case for AGN feedback: } Determining how today's galaxies have grown and evolved to their
+    present state is the primary goal of extragalactic research. It is
+    now clear that galaxy growth is strongly regulated by so-called
+    ``feedback'' processes (e.g., Vogelsberger et al. 2014, Schaye et
+    al. 2015). Among the most important of these is the suppression of
+    galaxy growth by Active Galactic Nuclei (AGNs) that heat and/or
+    expel gas which would otherwise collapse to form stars (see Fabian,
+    2012; Harrison, 2017 for reviews). Without this ``AGN feedback'',
+    models of galaxy growth fail to reproduce the masses, shapes and
+    sizes of the observed galaxy population. As such, {\bf it is widely
+      considered that AGNs have played a major role in shaping today's
+      galaxies}.
+    
+    \vspace{1.0mm}
+    
+    Recently, models invoking AGN feedback have received significant
+    empirical support from observations. Firstly, X-ray observations of
+    nearby clusters have revealed AGNs injecting considerable amounts of
+    energy into the intergalactic medium, preventing it from cooling and
+    forming stars (e.g., McNamara \& Nulsen 2012). Secondly, there is
+    clear evidence of fast (i.e., ${\rm >500s~km~s^{-1}}$), ionised
+    outflows in the optical and near-infrared spectra of a significant
+    fraction (i.e., $\sim20\%$; e.g., Mullaney et al. 2013; Harrison et
+    al. 2014) of all AGNs. Both provide strong evidence of energy
+    transport from AGNs, as required by feedback models.  The problem we
+    face, however, is that we do still not understand (a) how AGNs are
+    triggered and (b) what mechanism drives the outflows that transport
+    energy from the AGN. Until these questions are addressed, it will
+    remain impossible to test whether AGN feedback is being accurately
+    implemented in models of galaxy growth.
+  
+    \vspace{1.0mm}
+  
+     {\bf The role of IFU surveys in studies of AGN feedback: } The key to determining how AGNs are triggered are spatially
+     resolved kinematics of their host galaxies. This is because any
+     triggering mechanism must funnel gas to fuel the AGN from galactic
+     scales to the nucleus. Similarly, to determine how AGN outflows are
+     driven requires spatially resolved observations of those outflows,
+     mapped-out by their gas kinematics. Such spatially resolved
+     kinematics of the outflows and, in particular, the host galaxy can
+     {\it only} be delivered by integral field (IFU) observations of
+     {\it low redshift} (i.e., $z<0.4$) AGNs. Further, since AGNs and
+     their host galaxies display a lot of diversity, it is important to
+     conduct IFU surveys of sufficient numbers of AGNs to identify
+     underlying trends with, e.g., luminosity, mass, host morphology
+     etc.
+  
+    \vspace{1.0mm}
+  
+    To date, the only large IFU survey of nearby AGNs has focussed
+    radio-weak AGNs (i.e., CARS $[$PI: Husemann$]$). However, {\bf there
+      is strong evidence of an association between fast, ionised
+      outflows and radio-powerful AGNs}, with 50\% of AGNs with 1.4~GHz
+    radio luminosities ($L_{\rm 1.4GHz}$) above
+    ${\rm 10^{23}~W~Hz^{-1}}$ displaying evidence of powerful
+    (${\rm >500~km~s^{-1}}$) outflows, compared to just 10\% of those
+    below this radio luminosity threshold (Mullaney et al. 2013; Fig. 1,
+    {\it left}). Furthermore, our own resolved long-slit and IFU
+    observations of nearby radio AGNs show clear signs of interaction
+    between radio jets and the ISM (e.g., Holt et al. 2008, Tadhunter et
+    al. 2014, Santoro et al. 2015). This raises the prospect that jets
+    launched from radio AGNs are an important driver of powerful gas
+    outflows, as predicted by the hydrodynamical simulations of jet/gas
+    interactions described in Wagner et al. (2011; Fig. 1 {\it right};
+    also Mukherjee et al. 2016). Furthermore, radio loud AGNs are the
+    {\it only} type capable of inducing ``radio-mode'' AGN feedback,
+    which is thought to heat intergalactic gas, preventing it from
+    collapsing onto galaxies to form stars (e.g., Bower et
+    al. 2006). Since radio powerful AGNs have largely been avoided by
+    IFU surveys, it is likely that they have ignored one of the most
+    important drivers of AGN feedback. The focus of our proposal is to
+    address this by using MUSE to conduct the first IFU survey of a
+    representative sample of local, radio-powerful AGNs.}
+
+\ImmediateObjective{We will use the MUSE IFU to obtain deep spectral coverage of the
+host galaxies of a representative sample of powerful radio AGNs in
+the local Universe. {\bf With these observations, we will
+  determine (a) how powerful radio AGNs are triggered; (b) the role
+  of jets vs. radiative driving in powering AGN outflows; and (c)
+  the mass/momentum/energy content of these outflows, and whether
+  they have a significant impact on their host galaxies.}
+
+\vspace{1.0mm}
+
+{\bf \large The Sample}
+
+Our target sample is selected from the {\bf 2~Jy sample} of radio
+powerful AGNs, originally described in Wall \& Peacock (1985). The
+original 2~Jy sample contains all sources with 2.7~GHz fluxes above
+2~Jy, although we select only the southern sample, defined as having
+declinations below $+$10\deg. This represents a total of 88 objects,
+although 42 of these have strongly beamed emission along our line of
+sight and are not suitable for studies of the host galaxy or
+resolved outflows. This leaves a sample of 46 non-beamed, southern
+2~Jy sources. From these 46, we select only those 36 at $z<0.4$
+(hereafter, ``our sample''). These 36 radio AGNs span the radio
+luminosity range:
+$25.0<{\rm log}(L_{\rm 5GHz}/{\rm W~Hz^{-1}})<27.4$. They represent
+the full diversity of radio AGNs: 36\% are broad line (i.e., Type 1)
+AGNs or quasars, 42\% are narrow-line (i.e., Type 2) AGNs, while the
+remaining 22\% are weak-line radio AGNs associated with low AGN
+accretion rates, yet still display powerful radio jets (Tadhunter et
+al. 1993). Their diversity in class and luminosity means it is
+important that we observe the full sample to obtain statistically
+meaningful numbers of AGNs in important class and luminosity
+bins. Over the past two decades, our team has led numerous campaigns
+to obtain extensive coverage of the southern 2~Jy sample across the
+full observable electromagnetic spectrum. The 2Jy is unique in terms
+of the completeness of its multi-wavelength data that includes X-ray
+imaging/spectroscopy ({\it Chandra}, XMM), optical spectroscopy (ESO
+3.6m \& VLT), optical imaging ({\it Gemini}), near-IR imaging (ESO
+NTT \& VLT), mid to far-IR photometry ({\it Spitzer} \& {\it
+Herschel}), mid-IR spectroscopy ({\it Spitzer}) and radio imaging
+(VLA and ATCA); {\it it is now the best observed of any sample of
+radio-loud AGN}.  {\bf The 2~Jy sample therefore represents our
+best possible opportunity to determine what processes trigger
+powerful radio AGNs and drive their outflows.}
+
+\vspace{1.0mm}
+
+{\bf \large The Observations}
+
+In this section we highlight how our MUSE observations of the 2~Jy
+sample will build upon our current understanding of radio AGNs,
+enabling us to determine how radio AGNs are triggered, how their
+outflows are driven, and measure the properties and impact of these
+outflows.
+
+% Radio AGN fall into two broad categories according to their optical
+% emission lines: {\bf Strong Line Radio Galaxies (SLRGs)} and {\bf
+%   Weak Line Radio Galaxies (WLRGs)}. SLRGs are the radio-loud
+% versions of luminous quasars, and those within the 2~Jy sample
+% represent some of the most powerful AGNs in the local Universe (see
+% review by Tadhunter et al. 2016). Studies of SLRGs therefore provide
+% insights into the triggering of powerful AGNs {\it in general}. By
+% contrast, WLRGs show little evidence of a ``traditional'' active
+% nucleus at optical wavelengths. Yet, WLRGs transfer vast amounts of
+% mechanical energy into their surrounding IGM. The 2~Jy sample
+% contains both SLRGs ({\bf \color{red} numbers}) and WLRGs ({\bf
+%   \color{red} numbers}) important to determine the root causes of
+% each mode of AGN feedback.
+
+\vspace{1.0mm}
+
+{\bf How are radio AGNs triggered?:} To establish what triggers
+radio AGNs demands detailed observations of their immediate
+surroundings, and in particular their host galaxies. Initial
+inspection reveals that the majority of radio AGNs reside in massive
+($>10^{11}~{\rm M_\odot}$), early type galaxies (e.g., Matthews,
+Morgan \& Schmidt 1964). However, our own detailed morphological
+studies of the 2~Jy sample have revealed that features such as tidal
+tails, fans, shells, and bridges occur far more frequently around powerful
+radio AGNs compared to luminosity-matched comparison early-type
+galaxies (94\% of radio AGNs vs 50\% of non-active early-types when
+of similar surface brightness; Ramos Almeida et al. 2011, 2012;
+Fig. 2). This indicates a far more violent {\it recent} merger
+history than their early-type morphologies initially suggest.
+
+\vspace{1.0mm}
+
+The prevalence of tidal features around radio AGNs provides clear
+evidence that galaxy interactions play a role in triggering at least
+some powerful radio AGNs. However, with both major and minor mergers
+capable of producing strong tidal features, it is not clear what
+type of merger trigger radio AGN. Thankfully, stellar kinematics can
+be used to distinguish between the types of mergers that have taken
+place. Fast rotating early-type galaxies are produced by wet, major
+mergers, while slow rotators are thought to be produced by dry major
+or a series of minor mergers (Cappellari et al. 2016 and references
+therein).
+
+\vspace{1.0mm}
+
+To date, only a handful of radio AGNs have had their hosts' stellar
+kinematics measured, and even then only with long-slit spectra out
+to only a fraction of an effective radius (Smith and Heckman et
+al. 1990, Bettoni et al. 2001). These few shallow observations
+provide tantalising, yet unconfirmed, evidence that radio AGNs are
+associated with fast rotators. If confirmed, this would connect
+powerful radio AGNs to major wet mergers, possibly representing a
+post-starburst phase, since local Ultra Luminous Infrared Galaxies
+(ULIRGs) are also associated with fast rotation (e.g., Genzel et
+al. 2001; Tacconi et al. 2002). Should they instead be triggered by
+an alternative mechanism, such as accretion of hot halo gas or minor
+mergers as suggested by some models (e.g., King \& Pringle 2006;
+Hopkins \& Quataert 2010), they would show a preference toward
+slowly-rotating early-type galaxies. Finally, should radio AGNs show
+no preference to either fast or slow rotators, it would imply that
+the type of merger is not important, with either wet, dry, major or
+minor capable of triggering them. {\bf By mapping the stellar
+kinematics across the entire host galaxy, our MUSE observations
+will determine what type of galaxy interaction are required to
+trigger powerful radio AGNs.}
+
+\vspace{1.0mm}
+
+With our MUSE observations, we will spatially resolve (to at least
+one effective radius) the host galaxies of all our sample. We will
+measure the off-nuclear stellar velocity shift ($V$) and velocity
+dispersion ($\sigma$) from stellar absorption lines. At the low
+redshifts of these sources, the MUSE spectra will cover the strong
+Mg{\it b}$\lambda$5200 absorption line, although we will fit the
+whole stellar continuum with gaussian-convolved stellar templates to
+maximise the information from the stellar continuum (i.e., excluding
+emission lines and using the Penalised Pixel-Fitting method of
+Cappellari \& Emsellem, 2004). To extract just the first two
+velocity modes (i.e., $V$ and $\sigma$) requires a comparitavely low
+continuum signal-to-noise of $\sim$10 (e.g., Cappellari et
+al. 2007). To ensure we measure the characteristic kinematics of the
+whole galaxy, rather than just the core, {\it it is vital that we
+reach this sensitivity to at least one effective radius} (a
+diameter of 20 kpc, or 20\arcsec\ [4\arcsec ] for our lowest
+[highest] redshift target). This can only be achieved with deep
+($\sim2~{\rm hr}$) observations (see Box 9).
+
+\vspace{1.0mm}
+
+We will use the criteria of Emsellem et al. (2007) to distinguish
+between fast and slow rotating early type radio AGN hosts. This uses
+the resolved $V$ and $\sigma$ maps to overcome some of the
+degeneracies associated with traditional $V/\sigma$
+measurements. Next, we will compare the relative numbers of fast and
+slow rotators in our sample against mass-matched samples of non-AGN
+early type galaxies from the {\sc Atlas}$^{\rm 3D}$ survey
+(Cappellari et al. 2011). Should our sample display a significant
+departure from the relative numbers of fast to slow rotators in this
+comparison sample, it would imply a preference of one over the
+other. We will also compare against the radio-weak AGNs targeted with
+MUSE as part of the Close AGN Reference Survey (CARS; PI: Husemann)
+to determine whether powerful radio AGNs show evidence of being
+triggered via different mechanisms compared to radio-weak AGNs. With
+36 radio AGNs, our sample contains sufficient statistics to robustly
+test for this as a function of AGN type (broad line, narrow line,
+weak line) and luminosity, thereby demonstrating whether different
+classes of AGNs are triggered by different mechanisms.
+
+\vspace{1.0mm}
+
+{\bf What drives outflows from radio AGNs?:} To have any impact on
+galaxy evolution, the energy from an AGN, radio powerful or
+otherwise, must be transmitted into their host galaxies or
+surrounding material {\it and} effect some influence. Our team has
+played a leading role in identifying fast, yet non-relativistic
+(${\rm \sim1000~km\ s^{-1}}$) winds associated with powerful AGNs
+(e.g., Tadhunter et al. 2001, 2014; Alexander et al. 2008;
+Villar-Martin et al. 2014, 2016; Harrison et al. 2014; Santoro et
+al. 2015; Spence et al. 2016; Figs. 3 \& 4). These winds are often
+extended over kpc-scales, thereby {\it potentially} affecting a
+large fraction of the host galaxy as demanded by AGN feedback models
+(e.g., Alexander et al, 2008; Harrison et al. 2012, 2014; Tadhunter
+et al. 2014). Our investigations have also found that such winds are
+more prevalent among AGNs displaying evidence of nuclear radio
+emission.  Indeed, our long-slit observations of a subsample of the
+2~Jy sample has shown that some of the fastest AGN winds in the
+local Universe are associated with powerful radio AGNs (e.g.,
+Tadhunter et al. 2016). As such, it is important for our models of
+feedback that we establish their primary driving mechanism, whether
+the radio jet or the intense radiation from the AGN. {\bf Our MUSE
+observations will achieve this by mapping the winds in the 2~Jy
+AGN, allowing us to relate them to the resolved radio jets.}
+
+\vspace{1.0mm}
+
+By measuring the profiles of the strong forbidden $[$O~{\sc
+iii}$]\lambda5007$ emission line, we will map the kinematics of
+the ionised gas in our sample. The $[$O~{\sc iii}$]$ line traces low
+density gas and has been used extensively in recent studies, not
+least our own, to successfully measure the kinematics and extent of
+outflows in AGN host galaxies. The ionised phase, however, only
+represents a fraction of the gas in a galaxy, so we will use the
+Na~{\sc i} $\lambda\lambda5890,5896$ absorption lines to map the
+kinematics of the neutral gas phase (e.g., Rupke \& Veilleux,
+2013). {\it It is important that we have sufficiently deep
+observations to measure this absorption line against the stellar
+continuum}.  Any Na~{\sc i} absorption intrinsic to the stellar
+continuum will be modelled using stellar templates. At every
+position in the galaxy, we will decompose the $[${\rm O}~{\sc
+iii}$]$ and Na~{\sc i} lines into their various kinematic
+components, identifying those regions displaying the strongly
+shifted or broad kinematic components characteristic of powerful AGN
+outflows. By mapping the stellar and gas kinematics across the whole
+galaxy, {\it our deep observations will be able to identify even
+small departures from gravitational motions, and thus be highly
+sensitive to extended outflows}. We will then relate the location
+of the outflows to the positions of the radio jets that have already
+been mapped-out at high (i.e., sub-arcsecond) resolutions with our VLA
+and ATCA observations. {\it Should any AGN show outflows with a
+significantly wider opening angle than the jets, it would imply
+radiative driving in that case.}
+
+\vspace{1.0mm}
+
+{\bf What effect do AGN outflows have on their host galaxies?:} As
+well as establishing the mechanism driving AGN winds, to test AGN
+feedback models we must also determine whether they have any real
+effect on their host galaxies. The first step in doing this is to
+measure the energy content of the wind and (i) compare it to model
+predictions and (ii) empirically assess whether it is sufficient to
+evacuate the galaxy of significant fraction of its gas content. The
+second step is to determine whether the winds are having a direct
+influence on the host by comparing the rates of star formation
+within the winds against those in the rest of the galaxy. All of the
+2~Jy sample have {\it Spitzer} and {\it Herschel} coverage,
+providing obscuration-independent star formation rates
+(SFRs). However, the host is only resolved at these infrared
+wavelengths in a small minority of cases. For the others, we will
+use the MUSE spectra to produce resolved BPT diagnostics to map-out
+regions of star-formation within the host galaxies and, following
+e.g., Perna et al. (2015) \& Maiolino et at. (2017), relate these
+regions to the resolved AGN outflows. {\bf By mapping the source of
+ionising radiation (AGN, star formation), and density and
+kinematics of the outflows, our MUSE observations will provide the
+information needed to comprehensively measure the impact of radio
+AGNs on their host galaxies.}
+
+\vspace{1.0mm}  
+
+To measure the energy content of the extended outflows requires
+knowledge of their mass content. Thirty-five of our sample are at
+low enough redshifts that the $[$S~{\sc
+ii}$]\lambda\lambda6717,6732$ doublet falls within the spectral
+range of MUSE, enabling us to use this density-sensitive line for
+mass measurements. This density information, combined with the
+kinematics and extents of the outflows, will enable us to determine
+the mass and mass flux of the outflows. From this, we will measure
+the energy and momentum content of the outflows. This will be
+compared against model predictions (e.g., Zubovas \& King 2012;
+Gabor \& Bournaud 2014) and the gravitational potential of the
+galaxy (measured from stellar and non-outflowing gas kinematics) to
+determine whether the outflows contain sufficient energy to have a
+significant impact on host.
+
+\vspace{1.0mm}  
+
+Finally, we will use the approach of using resolved BPT diagnostics
+outlined in e.g., Perna et al. (2015); Maiolino et al. (2017) to
+directly measure the impact of the outflows on star formation within
+the extended outflows. This method solves the problem that the
+H$\beta$, $[$O~{\sc iii}$]\lambda5007$, $[$O~{\sc
+iii}$]\lambda\lambda6548, 6584$ and H$\alpha$ lines (i.e., the
+traditional emission lines used in BPT diagnostics) are dominated by
+AGN ionisation by kinematically decomposing the emission lines into
+separate AGN-ionised and star formation-ionised components. By
+relating regions of star-formation to the locations of the outflows,
+we will measure the impact of these outflows on star formation
+within the host galaxy (whether they enhance [positive feedback] or
+suppress [negative feedback] star-formation). Since BPT diagnostics
+are sensitive to star formation within the past $\sim$10~Myr, this
+provides a measurement of the immediate effect of AGN feedback
+(whether positive or negative) on short timescales before the AGN
+has had a chance to ``switch off'' (e.g., Hickox et al. 2014)}}
+
+\TelescopeJustification{MUSE is the only IFU available to us that has
+the sensitivity and field-of-view needed to achieve our immediate
+science goals.}
+
+\ModeJustification{As we are applying to use MUSE in a standard setup,
+service mode is more suitable as it guarantees our requested
+observing conditions.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE TWO PAGES OF THE FIGURES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Up to TWO pages of figures can be added to your proposal.  If you
+% use color figures, make sure that they are still readable if printed
+% in black and white.  Figures must be in PDF or JPEG format.
+% Each figure has a size limit of 1MB.
+
+\MakePicture{Figures1.pdf}{angle=0,width=18cm}
+\MakePicture{Figures2.pdf}{angle=0,width=18cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE PAGE OF BOXES 6, 7, AND 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 6 ------------------------------------------------------------
+%
+% Indicate below the experience of the applicants with telescopes,
+% instrumentation, data reduction and delivery of data products to the 
+% ESO Archive.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\Experience{The members of our team have extensive experience using the VLT and,
+in particular, its IFUs. Together, we have reduced and published
+data from KMOS, MUSE, VIMOS, and SINFONI representing over 100 hours
+of observations. A significant proportion of the KMOS data was taken
+as part of an ongoing Guaranteed Time Project (led by co-I
+D. M. Alexander). The first results from this GT program have
+already been published (Harrison et al. 2016, 2017) and the first
+results of the analyses have been uploaded to the Vizier
+database. We note that members of our team (Santoro, Morganti) were
+awarded Science Verification time on MUSE; the resulting data has
+already been fully reduced, analysed and published (Santoro et
+al. 2015ab, 2016). For the proposed MUSE observations, we have
+allocated a team with extensive experience of ESO pipelines and IFU
+data reduction (Harrison, Mullaney, Rose, Santoro) to perform an
+initial reduction within 24 hours of being notified of the
+completion of each OB. The data will be reduced using the standard
+ESO pipeline on a dedicated 52-core, 256~GB RAM machine with
+off-site backup. Since each OB contains three exposures, we will
+immediately be able to check for spurious outliers within each
+OB. Furthermore, as each OB represents a third of all data to be
+taken on each object, there will be sufficient signal per OB to
+check whether the desired data quality has been obtained, including
+seeing, signal-to-noise, and photometric reliability. As such, we
+have the capacity to notify the support staff of any problems with
+the data before significant amounts of further observations are
+made. After the initial checks have been completed, we will perform
+at least two full independent data reductions for each OB; one based
+at Sheffield (Mullaney, Rose), and another based either at ESO
+(Harrison) or ASTRON (Santoro). Rose, Harrison and Santoro, in
+particular, have significant experience manipulating the ESO data
+reduction pipeline to optimise outputs, so each reduction will be
+truly independent. Thus, we will be able to perform consistency
+checks and select the optimum output prior to submission to the
+archive. As well as reduced datacubes, we will also submit the
+results of our analyses to the ESO archive. These analysis products
+will include the results extracted from fitting the stellar
+continuum and the emission line profiles. Finally, the PI has a
+track record of making his analysis scripts public, a legacy that
+will continue with this program, facilitating reproducability checks
+and the easy analysis of the public datacubes by others.}
+
+%---- BOX 7 ------------------------------------------------------------
+%
+% Indicate below the strategy for data reduction and analysis with
+% description of the available resources to the observing team, such
+% as: computing capabilities, research assistants, etc...
+% In addition a delivery plan for data products should be described here.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\Resources{We have allocated a team of four full-time staff and PDRAs to data
+reduction, all of whom have significant experience with using the
+ESO data reduction pipeline to reduce IFU data. In terms of
+computing resources, the PI's group has access to a dedicated
+52-core, 256~GB RAM machine for data reduction. Data analysis will
+cover stellar continuum and emission line fitting across the
+IFU. This analysis will be carried-out using publicly available
+software (e.g., pPXF, Cappellari \& Emsellem 2004 ), as well as our
+own in-house IDL and Python software. Reduced (but not analysed)
+data from each semester will be published within six months of the
+end of that semester.  As well as the reduced data, the PI will
+ensure that all results of this data analyses are published to the
+ESO archives within two years of the completed program. Furthermore,
+all in-house software used to conduct these analyses will be made
+publicly available. This will enable others to both check our
+results and easily perform their own analyses using alternative
+input parameters or on, for example, other emission lines not
+analysed by default. In what follows, we highlight the tasks that
+each member of the team has been allocated in order to ensure that
+all steps in the data reduction, analyses and science publication
+are carried-out within the required four-year timeframe (two years'
+of observations $+$ two years of analyses and science publications):
+
+\vspace{1mm}
+
+{\it Data quality assessment:} Mullaney (S), Harrison (F), Rose (P),
+Santoro (D)
+
+{\it Data reduction:} Mullaney (S), Harrison (F), Rose (P) , Santoro (D)
+
+{\it Data analyses (i.e., spectral fitting etc):} Mullaney (S),
+Harrison (F), Rosario (F), Rose (P), Spence (D)
+
+{\it Host galaxy and kinematics:} Tadhunter (S), Ramos-Almeida (S),
+Bessiere (F), Dicken (S), Bernhard (P)
+
+{\it Radio Jet/Outflows:} Mullaney (S), Tadhunter (S), Morganti (S),
+Santoro (D), Spence (D)
+
+{\it Outflow properties:} Alexander (S), Harrison (F), Villar-Martin
+(S), Rose (P), Tadhunter (S)
+
+{\it Outflow/host interaction:} Mullaney (S), Alexander (S), Harrison (F),
+Rosario (F), Villar-Martin (S), Bessiere (F)
+
+{\it Key:} S $=$ Staff; F $=$ Research Fellow; P $=$ PDRA; D $=$ Doctoral Student}
+
+%---- BOX 8 ------------------------------------------------------------
+%
+% Take advantage of this box to provide any special remark (up to ten
+% lines).  
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\SpecialRemarks{This is a resubmission of a P100 LP proposal. In that
+previous proposal, we requested observations of the full Southern
+(unbeamed) 2~Jy sample of 46 AGNs spanning a redshift range
+$0.05<z<0.7$. However, while considering the science case ``strong
+and convincing'', the panel raised concerns regarding the loss of
+linear resolution in the more distant targets. Acknowledging these
+concerns, we now restrict the request to target only the $z<0.4$
+AGNs to ensure that we can reach our science goals for the entire
+sample, thus maximising science output per observing-hour. On the
+request of the OPC, we now also provide the redshifts and radio
+luminosities of all our targets (see Box 12). To address another of
+the OPC's comments: we stress that there is no better studied sample
+of radio luminous AGNs {\it in the whole sky} than the 2~Jy
+sample. It is therefore the optimal sample for determining the
+causes and effects of radio AGNs.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE PAGE OF BOXES 9 AND 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 9 ------------------------------------------------------------
+%
+% Provide below a careful justification of the requested lunar phase
+% and of the requested number of nights or hours. Provide all
+% information necessary to reproduce your ETC calculations. When
+% applicable, specify the magnitude system employed (e.g., Vega, AB). 
+% All macros in this box are NOT checked at the pdfLaTeX compilation.
+
+\WhyLunarPhase{Since measuring the stellar kinematics and outflow
+properties (via $[$O~{\sc iii}$]\lambda5007$) relies on the
+detection of features in the bluer region of the MUSE spectrum, we
+require dark or grey skies.}  
+
+\WhyNights{The integration time per target is dictated by the need to
+obtain sufficiently high signal-to-noise in both the stellar
+continuum and $[$O~{\sc iii}$]\lambda5007$ emission line to map
+their kinematics to at least one effective radii
+($\sim10$~kpc). This physical extent is needed to (a) ensure that
+any measured stellar kinematics provide a good representation of the
+whole galaxy, not just the (possibly decoupled) core and (b) measure
+the full sphere of influence of any outflows and assess their impact
+on a significant fraction of the host. Based on previous experience,
+this demands a signal-to-noise per spectral bin of at least 10 in
+the continuum. From our own optical imaging campaigns of the 2~Jy
+sample, the v-band surface brightness of the host at one effective
+radii is typically $\sim24^{\rm th}$~mag arcsec$^{-2}$ (Vega
+mags.). To obtain a S/N of 10 per pixel at this surface brightness
+will require unfeasibly long integration times. However, we will
+adaptively spatially bin to obtain the desired S/N. Entering this
+surface brightness into the MUSE ETC, adopting an elliptical
+spectral template, three days from new moon, 1.0\arcsec\ seeing (to
+sufficiently resolve the hosts of all AGNs in our sample) and a
+2-pixel spectral binning results in a S/N of 1.5 per pixel with
+2.5-hours on-target. Binning $6\times6$ pixels will achieve a S/N of
+$\sim10$, without a significant loss of spatial resolution beyond
+the requested 1.0\arcsec\ seeing. We will split each 2.5-hour
+on-target observation into twelve 750s DITs, with four DITs per OB
+(50 mins per OB). Following the MUSE instrument guidelines on
+overheads, we allocate 12~min per OB to overheads (pointing,
+acquisition, readout, etc.), resulting in 62~mins per OB. One of our
+sample has already been observed with MUSE for 1hr 20min, and
+therefore requires just two OBs. With three OBs for the remaining 35
+targets, this gives a total time request of 110.6 hours, distributed
+over four semesters.}
+
+% Please specify the type of calibrations needed.
+% Valid values: standard, special
+% In case of special calibration the second parameter specifies them.
+
+%\Calibrations{special}{Adopt a special calibration}
+\Calibrations{standard}{}
+
+%---- BOX 10 -----------------------------------------------------------
+% 
+% Use of the ESO facilities during the last 2 years (4 observing
+% periods) and description of the status of the obtained data.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\LastObservationRemark{
+
+{\bf KMOS; 095.A-748; 096.A-200; 097.A-0182; 098.A-311} Ongoing GTO program to measure the dynamics, star formation, outflows etc. of star-forming galaxies
+and AGN. First papers: {\bf {\em Stott et al. (2016); Harrison
+et~al. (2016b, 2017); Magdis et~al. (2016); Tiley et al. (2016); Swinbank et al. 2017}}.
+
+{\bf ALMA; 2016.1.00735.S} ``Spatially-resolved star formation at
+high-z; are AGN host galaxies special?''. Observations open.
+
+{\bf SINFONI; 096.A-600} ``AO/IFU observations of a representative
+sample of $z\approx1.5$ AGN: what influence do AGN have on their host
+galaxies?''; Observations carried over, 50\% completed.
+
+{\bf VIMOS; 099.B-0793}. ``Quasars ``Blowing Bubbles'': the impact of AGN on host galaxies'', in queue.}
+
+%---- BOX 11 -----------------------------------------------------------
+%
+% Applicant's publications related to the subject of this proposal
+% during the past two years.  Use the simplified abbreviations for
+% references as in A&A.  Separate each reference with the following
+% usual LaTex command: \smallskip\\
+%   
+%   Name1 A., Name2 B., 2001, ApJ, 518, 567: Title of article1
+%   \smallskip\\
+%   Name3 A., Name4 B., 2002, A\&A, 388, 17: Title of article2
+%   \smallskip\\
+%   Name5 A. et al., 2002, AJ, 118, 1567: Title of article3
+%
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\Publications{
+  Harrison, C.~M., 2017b, Nature Astronomy, arXiv:1703.06889, Invited
+  Review: {\it Impact of supermassive black
+    hole growth on star formation'}\\
+  Harrison, C.~M., et~al. 2017a, MNRAS, 467, 1965, ``The KMOS Redshift
+  One Spectroscopic Survey (KROSS): rotational velocities and angular
+  momentum of z~0.9 galaxies''\\
+Morganti et al. 2016, A\&A, 593, 30: {\it Another piece of the
+    puzzle: The fast H I outflow in Mrk 231}\\
+  Morganti et al. 2016, A\&A, 592, 94: {\it Missing link: Tracing
+    molecular gas in the outer filament of Centaurus A}\\
+  Johnson, Harrison et al. 2016, MNRAS, 460, 1059: {\it The spatially resolved
+    dynamics of dusty starburst galaxies in a z ˜ 0.4 cluster:
+    beginning the transition from spirals to S0s}\\
+  Villar-Martin et al. 2016, MNRAS, 460, 130: {\it Ionized outflows in luminous
+    type 2 AGNs at z < 0.6: no evidence for significant impact on the
+    host galaxies}\\
+  Spence et al. 2016, MNRAS, 459, 16: {\it No evidence for large-scale outflows
+    in the extended ionized halo of ULIRG Mrk273}\\
+  Tadhunter 2016, A\&AR, 24, 10: {\it Radio AGN in the local universe:
+    unification, triggering and evolution}\\
+  Santoro et al. 2016, A\&A, 590, 37S: {\it Embedded star formation in
+    the extended narrow line region of Centaurus A: Extreme mixing
+    observed by MUSE}\\
+  Villar-Martin et al. 2015, MNRAS, 454, 419: {\it Deconstructing the
+    narrow-line region of the nearest obscured quasar}\\
+  Morganti et al. 2015, A\&A, 580, 1: {\it The fast molecular outflow
+    in the Seyfert galaxy IC 5063 as seen by ALMA}\\
+  Santoro et al. 2015, A\&A, 575, 4: {\it The outer filament of
+    Centaurus A as seen by MUSE}\\
+  Harrison et al. 2015, ApJ, 800, 45: {\it Storm in a ``Teacup'': A
+    Radio-quiet Quasar with ≈10 kpc Radio-emitting Bubbles and Extreme
+    Gas Kinematics}\\
+  Santoro et al. 2015, A\&A, 574, 89: {\it The jet-ISM interaction in
+    the outer filament of Centaurus A}\\
+  Tadhunter et al. 2014, MNRAS, 445, 51: {\it The dust masses of
+    powerful radio galaxies: clues to the triggering of their
+    activity}\\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE PAGE OF THE TARGET/FIELD LIST %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 12 -----------------------------------------------------------
+%
+% Complete list of targets/fields requested.  The macro takes nine 
+% parameters: run ID, target field/name, RA, Dec, time on target, magnitude, diameter,
+% additional information, reference star.
+%
+% 1. RUN ID
+% Valid values: run IDs specified in BOX 3
+% 
+% 2. Target field/Name
+%
+% 3. RA (J2000)
+% Format: hh mm ss.f, or hh mm.f, or hh.f
+% Use 00 00 00 for unknown coordinates
+% This parameter is NOT checked at the pdfLaTeX compilation.
+% 
+% 4. Dec (J2000)
+% Format: dd mm ss, or dd mm.f, or dd.f
+% Use 00 00 00 for unknown coordinates
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 5. TIME ON TARGET
+% Format: hours (overheads and calibration included)
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 6. MAGNITUDE
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 7. ANGULAR DIAMETER
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 8. ADDITIONAL INFORMATION
+% Any relevant additional information may be inserted here.
+% For APEX runs, the requested PWV and the acceptable LST range
+%     MUST be specified here for each target. 
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 9. REFERENCE STAR ID
+% See Users' Manual.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% Long lists of targets will continue on the last page of the
+% proposal.
+%
+%
+%                       ** VERY IMPORTANT ** 
+% The scheduling of your programme will take into account ALL targets.
+%
+% DO NOT USE ANY TEX/LATEX MACROS FOR THE TARGETS.
+
+\Target{A}{PKS0034-01}{00 37 04.1}{-01 09 08.2}{3.1}{25.3}{}{z=0.07}{}
+\Target{A}{PKS0043-42}{00 46 17.8}{-42 07 51.4}{3.1}{26.0}{}{z=0.12}{}
+\Target{A}{PKS1934-63}{19 39 25.0}{-63 42 45.6}{2.1}{26.8}{}{z=0.18}{}
+\Target{A}{PKS2356-61}{23 59 04.5}{-60 54 59.1}{3.1}{26.0}{}{z=0.10}{}
+\Target{A}{PKS1839-48}{18 43 14.6}{-48 36 23.3}{3.1}{25.6}{}{z=0.11}{}
+\Target{A}{PKS1733-56}{17 37 35.8}{-56 34 03.4}{3.1}{25.9}{}{z=0.10}{}
+\Target{A}{PKS2250-41}{22 53 03.2}{-40 57 46.2}{3.1}{26.6}{}{z=0.31}{}
+\Target{A}{PKS2211-17}{22 14 25.8}{-17 01 36.2}{3.1}{26.1}{}{z=0.15}{}
+\Target{A}{PKS0038+09}{00 40 50.5}{+10 03 26.8}{3.1}{26.2}{}{z=0.19}{}
+\Target{A}{PKS2135-14}{21 37 45.2}{-14 32 55.5}{3.1}{26.2}{}{z=0.20}{}
+\Target{A}{PKS1949+02}{19 52 15.8}{+02 30 23.1}{3.1}{25.3}{}{z=0.06}{}
+\Target{B}{PKS0347+05}{03 49 46.5}{+05 51 42.3}{3.1}{26.7}{}{z=0.34}{}
+\Target{B}{PKS0404+03}{04 07 16.5}{+03 42 25.8}{3.1}{25.7}{}{z=0.09}{}
+\Target{B}{PKS0442-28}{04 44 37.7}{-28 09 54.6}{3.1}{26.1}{}{z=0.15}{}
+\Target{B}{PKS0625-35}{06 27 06.7}{-35 29 16.3}{3.1}{25.2}{}{z=0.05}{}
+\Target{B}{PKS0806-10}{08 08 53.6}{-10 27 40.2}{3.1}{25.7}{}{z=0.11}{}
+\Target{B}{PKS0915-11}{09 18 05.7}{-12 05 44.0}{3.1}{26.0}{}{z=0.05}{}
+\Target{B}{PKS0620-52}{06 21 43.3}{-52 41 33.3}{3.1}{24.9}{}{z=0.05}{}
+\Target{C}{PKS1559+02}{16 02 27.4}{+01 57 55.7}{3.1}{25.9}{}{z=0.10}{}
+\Target{C}{PKS0035-02}{00 38 20.5}{-02 07 40.1}{3.1}{26.2}{}{z=0.22}{}
+\Target{C}{PKS0039-44}{00 42 09.0}{-44 14 01.3}{3.1}{26.7}{}{z=0.35}{}
+\Target{C}{PKS1355-41}{13 59 00.2}{-41 52 54.1}{3.1}{26.7}{}{z=0.31}{}
+\Target{C}{PKS0023-26}{00 25 49.2}{-26 02 12.8}{3.1}{27.0}{}{z=0.32}{}
+\Target{C}{PKS1648+05}{16 51 08.2}{+04 59 33.8}{3.1}{26.9}{}{z=0.15}{}
+\Target{C}{PKS1814-63}{18 19 35.0}{-63 45 48.1}{3.1}{25.5}{}{z=0.06}{}
+\Target{C}{PKS1932-46}{19 35 56.6}{-46 20 40.7}{3.1}{26.7}{}{z=0.23}{}
+\Target{C}{PKS1954-55}{19 58 16.1}{-55 09 37.5}{3.1}{25.1}{}{z=0.06}{}
+\Target{C}{PKS2221-02}{22 23 49.6}{-02 06 12.4}{3.1}{25.2}{}{z=0.06}{}
+\Target{C}{PKS2314+03}{23 16 35.2}{+04 05 18.2}{3.1}{26.3}{}{z=0.22}{}
+\Target{D}{PKS1151-34}{11 54 21.8}{-35 05 29.1}{3.1}{26.7}{}{z=0.26}{}
+\Target{D}{PKS0945+07}{09 47 45.2}{+07 25 20.4}{3.1}{25.7}{}{z=0.09}{}
+\Target{D}{PKS0105-16}{01 08 16.9}{-16 04 20.6}{3.1}{26.8}{}{z=0.40}{}
+\Target{D}{PKS0859-25}{09 01 47.5}{-25 55 19.0}{3.1}{26.7}{}{z=0.31}{}
+\Target{D}{PKS0349-27}{03 51 35.8}{-27 44 33.8}{3.1}{25.3}{}{z=0.07}{}
+\Target{D}{PKS0625-53}{06 26 20.4}{-53 41 35.2}{3.1}{25.0}{}{z=0.05}{}
+\Target{D}{PKS0213-13}{02 15 37.5}{-12 59 30.5}{3.1}{26.0}{}{z=0.15}{}
+
+
+
+%                      *****************
+%                      ** PWV limits **
+% For all APEX instruments users must specify the PWV upper
+% limits for each target. For example:
+%\Target{}{Alpha CMa}{06 45 08.9}{-16 42 58}{1}{-1.4}{6 mas}{PWV=1.0mm, Sirius}{}
+%\Target{}{HD 104237}{12 00 05.6}{-78 11 33}{1}{}{}{PWV<0.7mm;LST=9h00-15h00}{}
+%                      *****************
+
+% Use TargetNotes to include any comments that apply to several or all
+% of your targets.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\TargetNotes{The ``Mag.'' column contains the $\rm log_{10}$
+rest-frame 5~GHz radio luminosity of the target in units of
+${\rm W~Hz^{-1}}$.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---- BOX 12a -- ESO Archive ------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Are the data requested in this proposal on the ESO Archive
+% (http://archive.eso.org)? If yes, explain the need for new data.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+\RequestedDataRemark{One of our targets, PKS1934-063 has been observed
+by MUSE for a total of 1hr20 minutes. This data is not, however, deep
+enough to reach our primary science goals. We therefore request a
+further 100 mins observing time on this single object (to fit within
+our OB structure).}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---- BOX 12b -- ESO GTO/Public Survey Programme Duplications--------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% If any of the targets/regions in ongoing GTO Programmes and/or 
+% Public Surveys are being duplicated here, please explain why.
+
+\RequestedDuplicateRemark{
+  
+  There is no duplication of the requested targets in ongoing GTO programmes.
+  
+  }
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE PAGE OF SCHEDULING REQUIR. AND INSTRUMENT CONFIGURATIONS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 13 -----------------------------------------------------------
+%
+% 1. RUN SPLITTING, FOR A GIVEN ESO TELESCOPE (Visitor Mode only)
+%
+
+% This line should remain uncommented if the proposal involves 
+% time-critical observations, or observations to be performed at specific 
+% time intervals. Please leave these brackets blank. Details of time 
+% constraints can be entered in Special Remarks and using the 
+% other flags in Box 13.
+%
+%\HasTimingConstraints{}
+
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: run splitting requested for sub-runs
+% This parameter is NOT checked at the pdfLaTeX compilation.
+
+%\RunSplitting{B}{2,10s,2,20w,2}
+%\RunSplitting{C}{2,10s,2,20w,2,15s,4H2}
+
+% 2. SPECIFIC DATE(S) FOR TIME-CRITICAL OBSERVATIONS
+% Please note: The dates must correspond to the LOCAL CHILEAN observing dates.
+%
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: Chilean start date for the critical period
+% Format: dd-mmm-yyyy
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 3rd argument: Chilean end date for the critical period
+% Format: dd-mmm-yyyy
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 4th argument: Reason for the time-critical dates specified.
+% 
+
+%\TimeCritical{A}{12-may-18}{14-may-18}{Insert reason for time-critical observations.}
+%\TimeCritical{D}{12-may-18}{14-may-18}{Insert reason for time-critical observations.}
+
+% 3. UNSUITABLE PERIOD(S) OF TIME
+%
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: Chilean start date for the unsuitable time
+% Format: dd-mmm-yyyy
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 3rd argument: Chilean end date for the unsuitable time
+% Format: dd-mmm-yyyy
+% This parameter is NOT checked at the pdfLaTeX compilation.
+
+%\UnsuitableTimes{A}{15-jul-18}{18-jul-18}{Insert explanation of unsuitable time here.}
+%\UnsuitableTimes{B}{15-jul-18}{18-jul-18}{Insert explanation of unsuitable time here.}
+%\UnsuitableTimes{C}{20-jul-18}{23-jul-18}{Insert explanation of unsuitable time here.}
+
+% 4. LINK FOR COORDINATED OBSERVATIONS BETWEEN DIFFERENT RUNS
+%
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: relationship
+% Valid value: after, simultaneous
+%
+% 3rd argument: run ID
+% Valid values: run IDs specified in BOX 3
+
+%\Link{B}{after}{A}{10}
+%\Link{C}{after}{B}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%---- BOX 14 -----------------------------------------------------------
+%
+% INSTRUMENT CONFIGURATIONS:
+%
+% Uncomment only the lines related to instrument configuration(s)
+% needed for the acquisition of your planned observations.
+%
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: instrument
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 3rd argument: mode
+% This parameter is NOT checked at the pdfLaTeX compilation.
+% Please note that RRM mode is only available for some specific
+% instrument configurations.
+%
+% 4th argument: additional information
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% All parameters are mandatory and cannot be empty. Do NOT specify
+% Instrument Configurations for alternative runs.
+
+% Examples (to be commented or deleted)
+
+%\INSconfig{A}{FORS2}{Detector}{MIT}
+%\INSconfig{A}{FORS2}{IMG}{ESO filters: provide list HERE}
+%\INSconfig{B}{XSHOOTER}{SLT}{readout UVB,readout VIS,readout NIR}
+%\INSconfig{C}{EFOSC2}{Imaging-filters}{EFOSC2 filters: provide list here}
+%\INSconfig{E}{XSHOOTER}{SLT}{readout UVB,readout VIS,readout NIR}
+%\INSconfig{F}{XSHOOTER}{SLT}{readout UVB,readout VIS,readout NIR}
+%
+% Real list of instrument configurations
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paranal
+%
+%-----------------------------------------------------------------------
+%---- FORS2 at the VLT-UT1 (ANTU) --------------------------------------
+%-----------------------------------------------------------------------
+%If you require the E2V (Blue) detector uncomment the following line
+%\INSconfig{}{FORS2}{Detector}{E2V}
+%
+%If you require the MIT (RED) detector uncomment the following line
+%\INSconfig{}{FORS2}{Detector}{MIT}
+%
+% If you require the High-Resolution  collimator uncomment the following line
+%\INSconfig{}{FORS2}{collimator}{HR}
+%
+% Uncomment the line(s) corresponding to the imaging mode(s) you require and
+% provide the list of filters needed  for your observations:
+%
+%\INSconfig{}{FORS2}{PRE-IMG}{ESO filters: provide list HERE}
+%\INSconfig{}{FORS2}{IMG}{ESO filters: provide list HERE}
+%\INSconfig{}{FORS2}{IMG}{User's own filters (to be described in text)}
+%\INSconfig{}{FORS2}{IPOL}{ESO filters: provide list HERE}
+%\INSconfig{}{FORS2}{IPOL}{User's own filters (to be described in text)}
+%\INSconfig{}{FORS2}{HIT-MS}{Provide list of grisms HERE}
+%
+% Uncomment the line(s) corresponding to the spectroscopic mode(s) you require and
+% provide the list of grism+filter combination needed  for your observations:
+%
+%\INSconfig{}{FORS2}{LSS}{Provide list of grism+filter combinations HERE}
+%\INSconfig{}{FORS2}{MOS}{Provide list of grism+filter combinations HERE}
+%\INSconfig{}{FORS2}{PMOS}{Provide list of grism+filter combinations HERE}
+%\INSconfig{}{FORS2}{MXU}{Provide list of grism+filter combinations HERE}
+%\INSconfig{}{FORS2}{HITI}{ESO filters: provide list HERE}
+%\INSconfig{}{FORS2}{HIT-OS}{Provide list of grisms HERE}
+%
+% Uncomment the following line for Rapid Response Mode observations
+%
+%\INSconfig{}{FORS2}{RRM}{yes}
+%
+% Uncomment the following line for use of the Virtual Image Slicer
+%\INSconfig{}{FORS2}{Virtual Image Slicer}{VM only}
+%-----------------------------------------------------------------------
+%---- KMOS at the VLT-UT1 (ANTU) ---------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{KMOS}{IFU}{provide list of settings (IZ, YJ, H, K, HK) here} 
+%
+%-----------------------------------------------------------------------
+%---- FLAMES at the VLT-UT2 (KUEYEN) -----------------------------------
+%-----------------------------------------------------------------------
+%\INSconfig{}{FLAMES}{UVES}{Specify the UVES setup below}
+%\INSconfig{}{FLAMES}{GIRAFFE-MEDUSA}{Specify the GIRAFFE setup below}
+%\INSconfig{}{FLAMES}{GIRAFFE-IFU}{Specify the GIRAFFE setup below}
+%\INSconfig{}{FLAMES}{GIRAFFE-ARGUS}{Specify the GIRAFFE setup below}
+%\INSconfig{}{FLAMES}{Combined: UVES + GIRAFFE-MEDUSA}{Specify the UVES and
+%GIRAFFE setups below}
+%\INSconfig{}{FLAMES}{Combined: UVES + GIRAFFE-IFU}{Specify the UVES and
+%GIRAFFE setups below}
+%\INSconfig{}{FLAMES}{Combined: UVES + GIRAFFE-ARGUS}{Specify the UVES and
+%GIRAFFe setups below}
+%
+% If you have selected UVES, either standalone or in combined mode,
+% please specify the UVES standard setup(s) to be used
+%\INSconfig{}{FLAMES}{UVES}{standard setup Red 520}
+%\INSconfig{}{FLAMES}{UVES}{standard setup Red 580}
+%\INSconfig{}{FLAMES}{UVES}{standard setup Red 580 + simultaneous calibration}
+%\INSconfig{}{FLAMES}{UVES}{standard setup Red 860}
+%
+%\INSconfig{}{FLAMES}{GIRAFFE}{fast readout mode 625kHz VM only}
+%\INSconfig{}{FLAMES}{GIRAFFE}{slow readout mode 50kHz VM only}
+%
+% If you have selected GIRAFFE, either standalone or in combined mode
+% please specify the GIRAFFE standard setups(s) to be used
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR01 379.0}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR02 395.8}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR03 412.4}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR04 429.7}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR05 447.1 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR05 447.1 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR06 465.6}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR07 484.5 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR07 484.5 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR08 504.8}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR09 525.8 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR09 525.8 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR10 548.8}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR11 572.8}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR12 599.3}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR13 627.3}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR14 651.5 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR14 651.5 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR15 665.0}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR15 679.7}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR16 710.5}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR17 737.0 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR17 737.0 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR18 769.1}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR19 805.3 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR19 805.3 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR20 836.6 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR20 836.6 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR21 875.7}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR22 920.5 A}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup HR22 920.5 B}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR01 385.7}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR02 427.2}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR03 479.7}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR04 543.1}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR05 614.2}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR06 682.2}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR07 773.4}
+%\INSconfig{}{FLAMES}{GIRAFFE}{standard setup LR08 881.7}
+%
+%\INSconfig{}{FLAMES}{GIRAFFE}{fast readout mode 625kHz VM only}
+%
+%-----------------------------------------------------------------------
+%---- X-SHOOTER at the VLT-UT2 (KUEYEN)
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{XSHOOTER}{300-2500nm}{SLT}
+%\INSconfig{}{XSHOOTER}{300-2500nm}{IFU}
+%
+% Slits (SLT only):
+%
+%UVB arm, available slits in arcsec: 0.5, 0.8, 1.0, 1.3, 1.6, 5.0
+%VIS arm, available slits in arcsec: 0.4, 0.7, 0.9, 1.2, 1.5, 5.0 
+%NIR arm, available slits in arcsec: 0.4, 0.6, 0.6JH, 0.9, 0.9JH, 1.2, 5.0
+%  The 0.6JH and 0.9JH include a stray light K-band blocking filter
+%  that allow sky limited studies in J and H bands.
+%
+%The slits for IFU  are fixed and do not need to be mentioned here.
+%
+% Replace SLIT-UVB, SLIT-VIS, SLIT-NIR with the choice of the slits:
+%\INSconfig{}{XSHOOTER}{SLT}{SLIT-UVB,SLIT-VIS,SLIT-NIR}
+%
+% Detector readout mode:
+%
+% UVB and VIS arms: available readout modes and binning:
+% 100k-1x1, 100k-1x2, 100k-2x2, 400k-1x1, 400k-1x2, 400k-2x2
+% The NIR readout mode is fixed  to NDR.
+%
+%\INSconfig{}{XSHOOTER}{IFU}{readout UVB,readout VIS,readout NIR}
+%\INSconfig{}{XSHOOTER}{SLT}{readout UVB,readout VIS,readout NIR}
+%
+% Imaging mode 
+% replace 'list of filters' by the actual filters you wish to use among:
+% U, B, V, R, I, Uprime, Gprime, Rprime, Iprime, Zprime
+% Please note that the imaging mode can only be used in combination with slit or IFU observations
+%\INSconfig{}{XSHOOTER}{IMG}{list of filters}
+%
+%\INSconfig{}{XSHOOTER}{RRM}{yes}
+%
+% Uncomment the following line for use of the Virtual Image Slicer
+%\INSconfig{}{XSHOOTER}{Virtual Image Slicer}{VM only}
+%-----------------------------------------------------------------------
+%---- UVES at the VLT-UT2 (KUEYEN) -------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{UVES}{BLUE}{Standard setting: 346}
+%\INSconfig{}{UVES}{BLUE}{Standard setting: 437}
+%\INSconfig{}{UVES}{BLUE}{Non-std setting: provide central wavelength  HERE}
+%
+%\INSconfig{}{UVES}{RED}{Standard setting: 520}
+%\INSconfig{}{UVES}{RED}{Standard setting: 580}
+%\INSconfig{}{UVES}{RED}{Standard setting: 600}
+%\INSconfig{}{UVES}{RED}{Iodine cell standard setting: 600}
+%\INSconfig{}{UVES}{RED}{Standard setting: 860}
+%\INSconfig{}{UVES}{RED}{Non-std setting: provide central wavelength HERE}
+%
+%\INSconfig{}{UVES}{DIC-1}{Standard setting: 346+580}
+%\INSconfig{}{UVES}{DIC-1}{Standard setting: 390+564}
+%\INSconfig{}{UVES}{DIC-1}{Standard setting: 346+564}
+%\INSconfig{}{UVES}{DIC-1}{Standard setting: 390+580}
+%\INSconfig{}{UVES}{DIC-1}{Non-std setting: provide central wavelength HERE}
+%
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 437+860}
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 346+860}
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 390+860}
+%
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 437+760}
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 346+760}
+%\INSconfig{}{UVES}{DIC-2}{Standard setting: 390+760}
+%\INSconfig{}{UVES}{DIC-2}{Non-std setting: provide central wavelength HERE}
+%
+%\INSconfig{}{UVES}{Field Derotation}{yes}
+%\INSconfig{}{UVES}{Image slicer-1}{yes}
+%\INSconfig{}{UVES}{Image slicer-2}{yes}
+%\INSconfig{}{UVES}{Image slicer-3}{yes}
+%\INSconfig{}{UVES}{Iodine cell}{yes}
+%\INSconfig{}{UVES}{Longslit Filters}{Provide list of filters HERE}
+%
+%\INSconfig{}{UVES}{RRM}{yes}
+%
+% Uncomment the following line for use of the Virtual Image Slicer
+%\INSconfig{}{UVES}{Virtual Image Slicer}{VM only}
+%-----------------------------------------------------------------------
+%---- SPHERE at the VLT-UT3 (MELIPAL) -----------------------------------
+%-----------------------------------------------------------------------
+%
+%
+% Pupil or field tracking?
+% Mode choices: IRDIS-CI, IRDIS-DBI, 
+%               IRDIFS, IRDIFS-EXT, 
+%               ZIMPOL-I
+%               (Not relevant for IRDIS-DPI, IRDIS-LSS, ZIMPOL-P1 or ZIMPOL-P2)
+%--------------------
+% IRDIFS: 
+% Coronagraph combination choices:
+%   IRDIFS:     None, N-ALC-YJH-S, N-ALC-YJH-L, N-CLC-SW-L, N-SAM-7H
+%   IRDIFS-EXT: None, N-ALC-YJH-S, N-ALC-YJH-L, N-ALC-Ks, N-SAM-7H
+% Filter choices for IRDIS in IRDIFS mode
+%   IRDIFS:     DB-H23, DB-ND23, DB-H34, BB-H
+%   IRDIFS-EXT: DB-K12, BB-Ks
+%---------------------
+% IRDIS imaging (alone):
+% Coronagraph combination choices for IRDIS imaging modes (see UM for details)
+%   IRDIS-CI, IRDIS-DPI:  
+%              None, N-ALC-Y, N-ALC-YJ-S, N-ALC-YJ-L, N-ALC-YJH-S, 
+%                    N-ALC-YJH-L, N-ALC-Ks, N-SAM-7H
+%   IRDIS-DBI: None, N-ALC-Y, N-ALC-YJ-S, N-ALC-YJ-L, N-ALC-YJH-S, 
+%                    N-ALC-YJH-L, N-ALC-Ks, N-SAM-7H
+% Filter choices:
+%   IRDIS-CI, IRDIS-DPI: 
+%              BB-Y, BB-J, BB-H, BB-Ks, NB-Hel, NB-CntJ, NB-CntH,
+%              NB-CntK1, NB-BrG, NB-CntK2, NB-PaB, NB-FeII, NB-H2, NB-CO
+%   IRDIS-DBI: DB-Y23, DB-J23, DB-H23, DB-NDH23,  DB-H34, DB-K12 
+%---------------------
+% IRDIS spectroscopy:
+% Coronagraphic slit/grism combinations for IRDIS-LSS:
+%   IRDIS-LSS: N-S-LR-WL, N-S-MR-WL
+%---------------------
+% ZIMPOL imaging: 
+% Coronagraph choices:
+%   ZIMPOL-I: None, V-CLC-M-WF, V-CLC-M-NF, V-CLC-L-WF, V-CLC-XL-WF, V-SAM-7H
+% Filter choices:
+%   ZIMPOL-I: RI, R-PRIM, I-PRIM, V, V-S, V-L, N-R, 730-NB, N-I, I-L,
+%             KI,  TiO-717, CH4-727, Cnt748, Cnt820, HeI, OI-630,
+%             CntHa, B-Ha, N-Ha, Ha-NB
+%--------------------
+% ZIMPOL polarimetry:
+% Coronagraph choices:
+%    ZIMPOL-P1: None, V-CLC-S-WF, V-CLC-M-WF, V-CLC-L-WF, V-CLC-XL-WF, V-CLC-MT-WF
+%    ZIMPOL-P2: None, V-CLC-S-WF, V-CLC-M-WF, V-CLC-L-WF, V-CLC-XL-WF, V-CLC-MT-WF
+% Filter choices:
+%    ZIMPOL-P1: RI, R-PRIM, I-PRIM, V, N-R, N-I, KI, TiO-717, 
+%               CH4-727, Cnt748, Cnt820, CntHa, N-Ha, B-Ha     
+%    ZIMPOL-P2: RI, R-PRIM, I-PRIM, V, N-R, N-I, KI, TiO-717, 
+%               CH4-727, Cnt748, Cnt820, CntHa, N-Ha, B-Ha 
+% Readout mode choice for ZIMPOL
+%    ZIMPOL-P1: FastPol, SlowPol
+%    ZIMPOL-P2: FastPol, SlowPol
+%-------------------
+%
+% One entry per mode. Repeat the entry for each mode.
+%
+%\INSconfig{}{SPHERE}{Pupil}{mode}
+%\INSconfig{}{SPHERE}{Field}{mode}
+%
+% One entry per combination. Repeat the entry for each combination.
+%
+%\INSconfig{}{SPHERE}{IRDIFS}{Coronagraph/filter or SAM mask combination for IRDIFS}
+%\INSconfig{}{SPHERE}{IRDIFS-EXT}{Coronagraph/filter or SAM mask combination for IRDIFS-EXT}
+%
+%\INSconfig{}{SPHERE}{IRDIS-CI}{Coronagraph/filter or SAM mask combination for IRDIS-CI}
+%\INSconfig{}{SPHERE}{IRDIS-DBI}{Coronagraph/filter or SAM mask  combination for IRDIS-DBI}
+%\INSconfig{}{SPHERE}{IRDIS-DPI}{Coronagraph/filter or SAM mask combination for IRDIS-DPI}
+%\INSconfig{}{SPHERE}{IRDIS-LSS}{Coronagraphic slit/grism combination for IRDIS-LSS}
+%
+%\INSconfig{}{SPHERE}{ZIMPOL-I}{Coronagraph/filter or SAM mask combination for ZIMPOL-I}
+%
+%\INSconfig{}{SPHERE}{ZIMPOL-P1}{Coronagraph/filter/readout mode for ZIMPOL-P1}
+%\INSconfig{}{SPHERE}{ZIMPOL-P2}{Coronagraph/filter/readout mode for ZIMPOL-P2}
+%
+%------------------  
+% Uncomment one the following line if the run requires the Rapid Response Mode
+% 'Mode' should be one of IRDIFS, IRDIFS-EXT, IRDIS-CI, IRDIS-DBI,
+% IRDIS-DPI, IRDIS-LSS, ZIMPOL-I, ZIMPOL-P1, ZIMPOLP2,
+%
+%\INSconfig{}{SPHERE}{RRM}{Mode}
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%-----------------------------------------------------------------------
+%---- GRAVITY ----------------------------------------------------------
+%-----------------------------------------------------------------------
+%
+%
+%\INSconfig{}{GRAVITY}{Single-Field}{provide list of grating(s) (LR,MR,HR) HERE}
+%\INSconfig{}{GRAVITY}{Dual-Field}{provide list of grating(s) (LR,MR,HR) HERE}
+%
+%%For UT runs, uncomment the following line and specify the Wave Front Sensor to be used: either MACAO or CIAO Off axis:
+%\INSconfig{}{GRAVITY}{WFS}{MACAO or CIAO-OFF}
+%
+%
+%-----------------------------------------------------------------------
+%---- PIONIER ----------------------------------------------------------
+%-----------------------------------------------------------------------
+%
+%
+%\INSconfig{}{PIONIER}{GRISM}{1.65}
+%\INSconfig{}{PIONIER}{FREE}{1.65}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%-----------------------------------------------------------------------
+%---- OMEGACAM at VST --------------------------------------------------
+% This instrument is only available for GTO, Chilean and filler programmes.
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{OMEGACAM}{IMG}{provide list of filters here}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% La Silla
+%
+%-----------------------------------------------------------------------
+%---- EFOSC2 (or SOFOSC) at the NTT ------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{EFOSC2}{PRE-IMG}{EFOSC2 filters: provide list here}
+%\INSconfig{}{EFOSC2}{Imaging-filters}{EFOSC2 filters:  provide list here}
+%\INSconfig{}{EFOSC2}{Imaging-filters}{ESO non EFOSC filters: provide ESOfilt No}
+%\INSconfig{}{EFOSC2}{Imaging-filters}{User's own filters (to be described in text)}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#1:320-1090}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#2:510-1100}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#3:305-610}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#4:409-752}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#5:520-935}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#6:386-807}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#7:327-524}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#8:432-636}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#11:338-752}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#13:369-932}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#14:310-509}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#16:602-1032}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#17:689-876}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#18:470-677}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#19:440-510}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Grism\#20:605:715}
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Aperture: 0.5'', ... ,10.0''}
+%
+%\INSconfig{}{EFOSC2}{Spectro-long-slit}{Aperture: Shiftable}
+%\INSconfig{}{EFOSC2}{Spectro-MOS}{PunchHead=0.95''}
+%\INSconfig{}{EFOSC2}{Spectro-MOS}{PunchHead=1.12''}
+%\INSconfig{}{EFOSC2}{Spectro-MOS}{PunchHead=1.45''}
+%\INSconfig{}{EFOSC2}{Polarimetry}{$\lambda / 2$ retarder plate}
+%\INSconfig{}{EFOSC2}{Polarimetry}{$\lambda / 4$ retarder plate}
+%\INSconfig{}{EFOSC2}{Coronograph}{yes}
+%
+%-----------------------------------------------------------------------
+%---- SOFI (or SOFOSC) at the NTT --------------------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{SOFI}{PRE-IMG-LargeField}{Provide list of filters HERE}
+%\INSconfig{}{SOFI}{Imaging-LargeField}{Provide list of filters HERE}
+%\INSconfig{}{SOFI}{Burst}{Provide list of filters HERE}
+%\INSconfig{}{SOFI}{FastPhot}{Provide list of filters HERE}
+%\INSconfig{}{SOFI}{Polarimetry}{Provide list of filters HERE}
+%\INSconfig{}{SOFI}{Spectroscopy-long-slit}{Blue Grism, Provide list of slits HERE}
+%\INSconfig{}{SOFI}{Spectroscopy-long-slit}{Red Grism, Provide list of slits HERE}
+%\INSconfig{}{SOFI}{Spectroscopy-high-res}{H, Provide list of slits HERE}
+%\INSconfig{}{SOFI}{Spectroscopy-high-res}{K, Provide list of slits HERE}
+%
+%-----------------------------------------------------------------------
+%---- HARPS at the 3.6 -------------------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{HARPS}{spectro-Thosimult}{HARPS}
+%\INSconfig{}{HARPS}{WAVE}{HARPS}
+%\INSconfig{}{HARPS}{spectro-ObjA(B)}{HARPS}
+%\INSconfig{}{HARPS}{spectro-ObjA(B)}{EGGS}
+%\INSconfig{}{HARPS}{spectro-polarimetry}{linear}
+%\INSconfig{}{HARPS}{spectro-polarimetry}{circular}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chajnantor
+%-----------------------------------------------------------------------
+%---- ARTEMIS at APEX ----------------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{ARTEMIS}{IMG}{350 and 450 um}
+%
+%-----------------------------------------------------------------------
+%---- SEPIA at APEX ----------------------------------------------
+%-----------------------------------------------------------------------
+%
+%\INSconfig{}{SEPIA}{Band-5}{Please enter Central Frequency 159 to 211 GHz}
+%\INSconfig{}{SEPIA}{Band-7}{Please enter Central Frequency 272 to 376 GHz}
+%\INSconfig{}{SEPIA}{Band-9}{Please enter Central Frequency 602 to 720 GHz}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Interferometry PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The \VLTITarget macro is only needed when requesting
+% Interferometry, in which case it is MANDATORY to uncomment it and
+% fill in the information. It takes the following parameters:
+%
+% 1st argument: run ID
+% Valid values: run IDs specified in BOX 3
+%
+% 2nd argument: target name
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 3rd argument: visual magnitude
+% Values with up to decimal places are allowed here.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 4th argument: magnitude at wavelength of observation
+% Values with up to decimal places are allowed here.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 5th argument: wavelength of observation (in microns)
+% Values with up to decimal places are allowed here.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 6th argument: size at wavelength of observation (in mas)
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 7th argument: baseline
+% UT observations are scheduled based on
+%     3-telescope baselines for AMBER and 
+%     4-telescope baselines for PIONIER and GRAVITY.
+% Therefore please specify 
+%   either one of the AMBER triplets 
+%   or a PIONIER/GRAVITY quadruplet.
+%
+% AT observations are scheduled based on 4-telescope
+% configurations (quadruplets) for all instruments. 
+%   For AMBER, the time can be split among the different available triplets
+%              at Phase 2.
+%   For GRAVITY, the astrometric configuration is only offered 
+%                in Dual Field mode
+% Therefore, specify one of the AT quadruplets at this stage.
+%
+% 8th parameter: Range of visibilities for the specified configuration.
+% Please specify the maximum and minimum visibility values
+% corresponding to the chosen configuration at hour angle 0
+% separated by "/".
+% This parameter is NOT checked at the pdfLaTeX compilation. 
+%
+% 9th parameter: correlated magnitude
+% (for the visibility values specified in the 8th parameter)
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% 10th parameter: time on target in hours
+% Values with up to decimal places are allowed here.
+% This parameter is NOT checked at the pdfLaTeX compilation.
+%
+% The available baselines for Period 101 are shown below.
+%
+%
+% 
+% AMBER
+% A0-B2-C1-D0     ("small" configuration)
+% D0-G2-J3-K0     ("medium" configuration)
+% A0-G1-J2-J3     ("large" configuration)
+% UT1-UT2-UT3
+% UT1-UT2-UT4
+% UT1-UT3-UT4
+% UT2-UT3-UT4
+% 
+% GRAVITY
+% A0-B2-C1-D0     ("small" configuration)
+% D0-G2-J3-K0     ("medium" configuration)
+% A0-G1-J2-J3     ("large" configuration)
+% A0-G1-J2-K0     ("astrometric" configuration: Dual Field mode only)      
+% UT1-UT2-UT3-UT4
+% 
+% PIONIER
+% A0-B2-C1-D0     ("small" configuration)
+% D0-G2-J3-K0     ("medium" configuration)
+% A0-G1-J2-J3     ("large" configuration)
+% UT1-UT2-UT3-UT4
+% 
+
+%\VLTITarget{E}{Alpha Ori}{-1.4}{-1.4}{10.6}{6}{UT1-UT2-UT3}{0.60/0.10}{-0.2/4.0}{2} 
+%\VLTITarget{F}{Alpha Ori}{-1.4}{-1.4}{10.6}{6}{D0-K0-G2-J3}{0.80/0.40}{-0.9/-0.2}{1} 
+
+% You can specify here a note applying to all or some of your VLTI
+% targets.  You should take advantage of this note to indicate
+% suitable alternative baselines for your observations.
+% This macro is NOT checked at the pdfLaTeX compilation.
+
+%\VLTITargetNotes{Note about the VLTI targets, e.g., Run E can also be carried out using UT1-UT3-UT4.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% VISITOR SPECIAL INSTRUMENT PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The following commands are only needed when bringing a Visitor
+% Special Instrument, in which case it is MANDATORY to uncomment them
+% and provide all the required information.
+%
+%\Desc{}   %Description of the instrument and its operation
+%\Comm{}   %On which telescope(s) has instrument been commissioned/used
+%\WV{}     %Total weight and value of equipment to be shipped
+%\Wfocus{} %Weight at the focus (including ancillary equipment)
+%\Interf{} %Compatibility of attachment interface with required focus
+%\Focal{}  %Back focal distance value
+%\Acqu{}   %Acquisition, focusing, and guiding procedure
+%\Softw{}  %Compatibility with ESO software standards (data handling)
+%\Suppl{}  %Estimate of services expected from ESO (in person days)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% THE END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\MakeProposal
+\end{document}
+
+
